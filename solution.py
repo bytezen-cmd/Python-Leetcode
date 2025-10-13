@@ -127,3 +127,71 @@ class Solution:
             return haystack.index(needle)
         else:
             return -1
+
+    @staticmethod
+    def search_insert(nums: List[int], target: int) -> int:
+        start = 0
+        end = len(nums) - 1
+
+        while start <= end:
+            mid = (start + end) // 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] > target:
+                end = mid - 1
+            else:
+                start = mid + 1
+        return start
+
+    @staticmethod
+    def length_of_last_word(s: str) -> int:
+        s = s.strip()
+        m = s.split()
+        return len(m[-1])
+
+    @staticmethod
+    def plus_one(digits: List[int]) -> List[int]:
+        a = ""
+        for x in digits:
+            a += str(x)
+        b = int(a) + 1
+        c = []
+        for l in str(b):
+            c.append(int(l))
+        return c
+
+    @staticmethod
+    def add_binary(a: str, b: str) -> str:
+        a = int(a, 2)
+        b = int(b, 2)
+
+        return bin(a + b)[2:]
+
+    @staticmethod
+    def my_sqrt(x: int) -> int:
+        r = 1
+        while True:
+            if r * r < x:
+                r += 1
+            elif r * r == x:
+                return r
+            else:
+                return r - 1
+
+    @staticmethod
+    def find_gcd(nums: List[int]) -> int:
+        small = max(nums)
+        large = 0
+        for n in nums:
+            if n < small:
+                small = n
+            if n > large:
+                large = n
+
+        remainder = 1
+        while remainder != 0:
+            remainder = large % small
+            if remainder != 0:
+                large = small
+                small = remainder
+        return small
