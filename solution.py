@@ -8,6 +8,10 @@ class ListNode:
 
 # Problem Solutions
 class Solution:
+    def __init__(self):
+        self.stack = []
+        self.cache_stairs = [0, 1, 2, 3]
+
     @staticmethod
     def two_sum(nums: List[int], target: int) -> list[int | Any] | None:
         hashmap = {}
@@ -50,9 +54,6 @@ class Solution:
                 return x[:z]
 
         return ""
-
-    def __init__(self):
-        self.stack = []
 
     def is_empty(self):
         return len(self.stack) == 0
@@ -195,3 +196,34 @@ class Solution:
                 large = small
                 small = remainder
         return small
+
+
+    def climb_stairs(self, n: int) -> int:
+        if n < len(self.cache_stairs):
+            return self.cache_stairs[n]
+        else:
+            self.cache_stairs.append(self.climb_stairs(n - 1) + self.climb_stairs(n - 2))
+        return self.cache_stairs[n]
+
+    @staticmethod
+    def delete_duplicates(head: Optional[ListNode]) -> Optional[ListNode]:
+        vals = []
+        while head:
+            vals.append(head.val)
+            head = head.next
+        vals = sorted(list(set(vals)))
+        z = ListNode()
+        r = z
+        for x in vals:
+            z.next = ListNode(val=x)
+            z = z.next
+        return r.next
+
+    @staticmethod
+    def merge(nums1: List[int], m: int, nums2: List[int]) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        a = sorted(nums1[:m] + nums2)
+        for x in range(len(nums1)):
+            nums1[x] = a[x]
