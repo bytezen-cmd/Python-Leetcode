@@ -6,11 +6,25 @@ class ListNode:
          self.val = val
          self.next = next_
 
+class TreeNode:
+     def __init__(self, val=0, left=None, right=None):
+         self.val = val
+         self.left = left
+         self.right = right
+
 # Problem Solutions
 class Solution:
     def __init__(self):
         self.stack = []
         self.cache_stairs = [0, 1, 2, 3]
+        self.traverse_inorder = []
+
+    def inorder_traversal(self, root: Optional[TreeNode]) -> List[int]:
+        if root:
+            self.inorder_traversal(root.left)
+            self.traverse_inorder.append(root.val)
+            self.inorder_traversal(root.right)
+        return self.traverse_inorder
 
     @staticmethod
     def two_sum(nums: List[int], target: int) -> list[int | Any] | None:
@@ -227,3 +241,4 @@ class Solution:
         a = sorted(nums1[:m] + nums2)
         for x in range(len(nums1)):
             nums1[x] = a[x]
+
