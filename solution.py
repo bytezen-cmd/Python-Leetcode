@@ -109,3 +109,21 @@ class Solution:
         for x in range(len(a)):
             nums[x] = a[x]
         return len(a)
+
+    @staticmethod
+    def remove_element(nums: List[int], val: int) -> int:
+
+        i = 0
+        for j in range(len(nums)):
+            if nums[j] != val:
+                nums[i] = nums[j]
+                i += 1
+
+        return i
+
+    @staticmethod
+    def str_str(haystack: str, needle: str) -> int:
+        if needle in haystack:
+            return haystack.index(needle)
+        else:
+            return -1
