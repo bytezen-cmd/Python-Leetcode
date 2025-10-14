@@ -18,6 +18,27 @@ class Solution:
         self.cache_stairs = [0, 1, 2, 3]
         self.traverse_inorder = []
 
+    @staticmethod
+    def interpret(command: str) -> str:
+        m = ""
+        for x in range(len(command)):
+            if command[x] == "G":
+                m += "G"
+            if not (x + 2 > len(command)):
+                if command[x:x + 2] == "()":
+                    m += "o"
+            if not (x + 4 > len(command)):
+                if command[x:x + 4] == "(al)":
+                    m += "al"
+        return m
+
+    @staticmethod
+    def find_middle_index(nums: List[int]) -> int:
+        for x in range(len(nums)):
+            if sum(nums[:x]) == sum(nums[x + 1:]):
+                return x
+        return -1
+
     def inorder_traversal(self, root: Optional[TreeNode]) -> List[int]:
         if root:
             self.inorder_traversal(root.left)
