@@ -242,3 +242,27 @@ class Solution:
         for x in range(len(nums1)):
             nums1[x] = a[x]
 
+    def is_same_tree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        c = True
+        if (p is None and q is not None) or (p is not None and q is None):
+            return False
+        if p and q:
+            c = c and (p.val == q.val)
+            if p.left and q.left:
+                c = c and self.is_same_tree(p.left, q.left)
+            if p.right and q.right:
+                c = c and self.is_same_tree(p.right, q.right)
+            if (p.left and not q.left) or (not p.left and q.left) or (p.right and not q.right) or (
+                    not p.right and q.right):
+                return False
+        return c
+
+    @staticmethod
+    def find_peaks(mountain: List[int]) -> List[int]:
+        peaks = []
+        for x in range(len(mountain)):
+            if x - 1 != -1 and x + 1 != len(mountain):
+                if (mountain[x] > mountain[x - 1]) and (mountain[x] > mountain[x + 1]):
+                    peaks.append(x)
+        return peaks
+
