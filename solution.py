@@ -5,7 +5,6 @@ class ListNode:
      def __init__(self, val=0, next_=None):
          self.val = val
          self.next = next_
-
 class TreeNode:
      def __init__(self, val=0, left=None, right=None):
          self.val = val
