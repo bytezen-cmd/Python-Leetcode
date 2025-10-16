@@ -19,6 +19,11 @@ class Solution:
         self.traverse_inorder = []
 
     @staticmethod
+    def count_segments(s: str) -> int:
+        a = s.split()
+        return len(a)
+
+    @staticmethod
     def interpret(command: str) -> str:
         m = ""
         for x in range(len(command)):
