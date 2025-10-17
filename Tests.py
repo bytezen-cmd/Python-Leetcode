@@ -1,3 +1,6 @@
+"""To check the working of some functions."""
+
+
 print(list(range(4,0,-1)))
 while None or None:
      print(list(range(4,0,-1)))
