@@ -1,4 +1,9 @@
 """To check the working of some functions."""
+stack = []
+try:
+    print(stack[-1])
+except IndexError:
+    pass
 
 
 print(list(range(4,0,-1)))
