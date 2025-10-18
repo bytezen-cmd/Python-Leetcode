@@ -20,6 +20,63 @@ class Solution:
         self.traverse_inorder = []
 
     @staticmethod
+    def majority_element(nums: List[int]) -> int | None:
+        values = list(set(nums))
+        for val in values:
+            if nums.count(val) > len(nums) / 2:
+                return val
+        return None
+
+    @staticmethod
+    def intersect(nums1: List[int], nums2: List[int]) -> List[int]:
+        result = []
+        for num in nums1:
+            if num in nums2:
+                result.append(num)
+                nums2.remove(num)
+        return result
+
+    @staticmethod
+    def intersection(nums1: List[int], nums2: List[int]) -> List[int]:
+        intersection = [num for num in nums1 if num in nums2]
+        return list(set(intersection))
+
+    @staticmethod
+    def reverse_vowels(s: str) -> str:
+        start = 0
+        end = len(s) - 1
+        s = [char for char in s]
+        check = ['A', 'U', 'O', 'I', 'E', 'a', 'e', 'i', 'o', 'u']
+        while start < end:
+            if s[start] not in check:
+                start += 1
+            if s[end] not in check:
+                end -= 1
+            if s[start] in check and s[end] in check:
+                s[start], s[end] = s[end], s[start]
+                start += 1
+                end -= 1
+        return "".join(s)
+
+    @staticmethod
+    def is_power_of_four(n: int) -> bool:
+        if n < 1:
+            return False
+        while n != 1:
+            if n % 4 == 0:
+                n //= 4
+            else:
+                return False
+        return True
+
+    @staticmethod
+    def count_bits(n: int) -> List[int]:
+        ans = []
+        for x in range(n + 1):
+            ans.append(bin(x).count("1"))
+        return ans
+
+    @staticmethod
     def num_of_pairs(nums: List[str], target: str) -> int:
         count = 0
         for i in range(len(nums)):
