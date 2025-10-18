@@ -13,10 +13,22 @@ class TreeNode:
 
 # Problem Solutions
 class Solution:
+
     def __init__(self):
         self.stack = []
         self.cache_stairs = [0, 1, 2, 3]
         self.traverse_inorder = []
+
+    @staticmethod
+    def num_of_pairs(nums: List[str], target: str) -> int:
+        count = 0
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if i != j:
+                    if nums[i] + nums[j] == target:
+                        count += 1
+
+        return count
 
     @staticmethod
     def count_segments(s: str) -> int:
