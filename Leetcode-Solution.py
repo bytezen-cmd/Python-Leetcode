@@ -44,6 +44,22 @@ class Solution:
         self.total_nodes = 0
 
     @staticmethod
+    def third_max(nums: List[int]) -> int:
+        nums = sorted(list(set(nums)))
+        first = -float('inf')
+        second = -float('inf')
+        third = -float('inf')
+        for num in nums:
+            if num > first:
+                third = second
+                second = first
+                first = num
+        if len(nums) < 3:
+            return first
+        else:
+            return third
+
+    @staticmethod
     def fizz_buzz(n: int) -> List[str]:
         answer = []
         for x in range(1, n + 1):
