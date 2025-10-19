@@ -1,6 +1,21 @@
 from typing import List
+import math
 
 class Solution:
+
+    @staticmethod
+    def solution(s):
+        answer = []
+        for x in range(0, len(s), 2):
+            if x + 1 != len(s):
+                answer.append(f"{s[x]}{s[x + 1]}")
+            else:
+                answer.append(f"{s[x]}_")
+        return answer
+
+    @staticmethod
+    def circle_diameter(sides, side_length):
+        return side_length / math.tan(math.pi / sides)
 
     @staticmethod
     def dir_reduction(arr):
