@@ -10,6 +10,27 @@ class TreeNode:
          self.val = val
          self.left = left
          self.right = right
+class MyQueue:
+
+    def __init__(self):
+        self.queue = []
+
+    def push(self, x: int) -> None:
+        self.queue.append(x)
+
+    def pop(self) -> Any | None:
+        if len(self.queue) != 0:
+            return self.queue.pop(0)
+        return None
+
+    def peek(self) -> Any | None:
+        if len(self.queue) != 0:
+            return self.queue[0]
+        return None
+    def empty(self) -> bool:
+        if len(self.queue) == 0:
+            return True
+        return False
 
 # Problem Solutions
 class Solution:
@@ -18,6 +39,125 @@ class Solution:
         self.stack = []
         self.cache_stairs = [0, 1, 2, 3]
         self.traverse_inorder = []
+        self.happy_sequence = []
+        self.left_leaves_entry = []
+        self.total_nodes = 0
+
+    @staticmethod
+    def find_the_difference(s: str, t: str) -> str | None:
+        s = [char for char in s]
+        for char in t:
+            if char not in s:
+                return char
+            else:
+                s.remove(char)
+        return None
+
+    def number_of_nodes(self, root: Optional[TreeNode]) -> int:
+        if root:
+            self.total_nodes += 1
+        if root.left:
+            self.number_of_nodes(root.left)
+        if root.right:
+            self.number_of_nodes(root.right)
+        return self.total_nodes
+
+    def sum_of_left_leaves(self, root: Optional[TreeNode]) -> int:
+        if not root.left and not root.right:
+            self.left_leaves_entry.append(root.val)
+        if root.left:
+            self.sum_of_left_leaves(root.left)
+        if root.right and (root.right.left or root.right.right):
+            self.sum_of_left_leaves(root.right)
+        if self.number_of_nodes(root) != 1:
+            return sum(self.left_leaves_entry)
+        else:
+            return 0
+
+    @staticmethod
+    def can_construct(ransom_note: str, magazine: str) -> bool:
+        magazine_arr = [char for char in magazine]
+        for char in ransom_note:
+            if char in magazine_arr:
+                magazine_arr.remove(char)
+            else:
+                return False
+        return True
+
+    @staticmethod
+    def summary_ranges(nums: List[int]) -> List[str]:
+        if len(nums) == 0:
+            return []
+        elif len(nums) == 1:
+            return [f"{nums[0]}"]
+
+        answers = []
+        start = 0
+        for index in range(1, len(nums)):
+            if nums[index] - nums[index - 1] > 1:
+                answers.append(nums[start:index])
+                start = index
+        answers.append(nums[start:len(nums)])
+        answer = []
+        for ans in answers:
+            if ans not in answer:
+                answer.append(ans)
+
+        for i in range(len(answer)):
+            if answer[i][0] == answer[i][-1]:
+                answer[i] = f"{answer[i][0]}"
+            else:
+                answer[i] = f"{answer[i][0]}->{answer[i][-1]}"
+
+        return answer
+
+    @staticmethod
+    def is_palindrome_linked_list(head: Optional[ListNode]) -> bool:
+        head_lv = []
+        while head:
+            try:
+                head_lv.append(head.val)
+                head = head.next
+            except AttributeError:
+                break
+        if head_lv == head_lv[::-1]:
+            return True
+        return False
+
+    @staticmethod
+    def is_power_of_two(n: int) -> bool:
+        if n < 1:
+            return False
+
+        while n != 1:
+            if n % 2 == 1:
+                return False
+            else:
+                n //= 2
+        return True
+
+    @staticmethod
+    def contains_duplicate(nums: List[int]) -> bool:
+        return not (len(nums) == len(set(nums)))
+
+    def is_happy(self, n: int) -> bool:
+        while (n != 1) and (n not in self.happy_sequence):
+            self.happy_sequence.append(n)
+            n = sum([int(x) ** 2 for x in str(n)])
+        if n == 1:
+            return True
+        else:
+            return False
+
+    @staticmethod
+    def hamming_weight(n: int) -> int:
+        return bin(n)[2:].count("1")
+
+    @staticmethod
+    def reverse_bits(n: int) -> int:
+        b_str = ((32 - len(bin(n)[2:])) * "0") + bin(n)[2:]
+        b_str = b_str[::-1]
+        return int(b_str, 2)
 
     @staticmethod
     def majority_element(nums: List[int]) -> int | None:
