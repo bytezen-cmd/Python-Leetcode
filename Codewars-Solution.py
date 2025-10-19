@@ -4,6 +4,19 @@ import math
 class Solution:
 
     @staticmethod
+    def comp(array1, array2):
+        if array1 == [] and array2 == []:
+            return True
+        elif (array1 == [] and array2 != []) or (array1 != [] and array2 == []):
+            return False
+        for element in array1:
+            if element ** 2 in array2:
+                array2.remove(element ** 2)
+            else:
+                return False
+        return True
+
+    @staticmethod
     def solution(s):
         answer = []
         for x in range(0, len(s), 2):
