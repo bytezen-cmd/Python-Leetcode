@@ -44,6 +44,20 @@ class Solution:
         self.total_nodes = 0
 
     @staticmethod
+    def fizz_buzz(n: int) -> List[str]:
+        answer = []
+        for x in range(1, n + 1):
+            if (x % 15) == 0:
+                answer.append("FizzBuzz")
+            elif (x % 5) == 0:
+                answer.append("Buzz")
+            elif (x % 3) == 0:
+                answer.append("Fizz")
+            else:
+                answer.append(f"{x}")
+        return answer
+
+    @staticmethod
     def find_the_difference(s: str, t: str) -> str | None:
         s = [char for char in s]
         for char in t:
