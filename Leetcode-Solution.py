@@ -33,7 +33,7 @@ class MyQueue:
         return False
 
 # Problem Solutions
-class Solution:
+class LeetcodeSolution:
 
     def __init__(self):
         self.stack = []

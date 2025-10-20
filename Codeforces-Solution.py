@@ -1,4 +1,4 @@
-class Solution:
+class CodeforcesSolution:
 
     @staticmethod
     def is_lucky(s) -> bool:
@@ -29,4 +29,4 @@ class Solution:
             print("NO")
 
 
-Solution.translation()
+CodeforcesSolution.translation()

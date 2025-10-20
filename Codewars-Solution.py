@@ -1,7 +1,28 @@
 from typing import List
 import math
 
-class Solution:
+class CodewarsSolution:
+
+    @staticmethod
+    def expanded_form(num):
+        num = str(num)
+        digits = len(num)
+        answer = []
+        for x in range(digits):
+            if num[x] != "0":
+                answer.append(str(int(num[x]) * (10 ** (digits - x - 1))))
+        return " + ".join(answer)
+
+    @staticmethod
+    def order(sentence):
+        words = sentence.split()
+        reorder = [word for word in words]
+
+        for word in words:
+            for char in word:
+                if char.isnumeric():
+                    reorder[int(char) - 1] = word
+        return " ".join(reorder)
 
     @staticmethod
     def comp(array1, array2):
