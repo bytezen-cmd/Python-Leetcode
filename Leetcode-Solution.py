@@ -105,6 +105,37 @@ class LeetcodeSolution:
         return self.node_count
 
     @staticmethod
+    def check_zero_ones(s: str) -> bool:
+        array1 = s.split("0")
+        array0 = s.split("1")
+        max0 = 0
+        max1 = 0
+        for arr in array0:
+            if len(arr) > max0:
+                max0 = len(arr)
+        for arr in array1:
+            if len(arr) > max1:
+                max1 = len(arr)
+        return max1 > max0
+
+
+    @staticmethod
+    def get_min_distance(nums: List[int], target: int, start: int) -> int:
+        minimum = float("inf")
+        for i in range(len(nums)):
+            if nums[i] == target and abs(i - start) < minimum:
+                minimum = abs(i - start)
+        return minimum
+
+    @staticmethod
+    def sum_base(n: int, k: int) -> int:
+        array = []
+        while n != 0:
+            array.append(n % k)
+            n //= k
+        return sum(array)
+
+    @staticmethod
     def check_if_pangram(sentence: str) -> bool:
         check = 'abcdefghijklmnopqrstuvwxyz'
         if all([sentence.count(char) > 0 for char in check]):
