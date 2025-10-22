@@ -42,6 +42,16 @@ class LeetcodeSolution:
         self.happy_sequence = []
         self.left_leaves_entry = []
         self.total_nodes = 0
+        self.node_count = 0
+
+    def count_nodes(self, root: Optional[TreeNode]) -> int:
+        if root:
+            self.node_count += 1
+            if root.left:
+                self.count_nodes(root.left)
+            if root.right:
+                self.count_nodes(root.right)
+        return self.node_count
 
     @staticmethod
     def separate_digits(self, nums: List[int]) -> List[int]:
