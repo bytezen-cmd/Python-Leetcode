@@ -44,7 +44,7 @@ class LeetcodeSolution:
         self.total_nodes = 0
 
     @staticmethod
-    def separateDigits(self, nums: List[int]) -> List[int]:
+    def separate_digits(self, nums: List[int]) -> List[int]:
         output = []
         for num in nums:
             for char in str(num):
