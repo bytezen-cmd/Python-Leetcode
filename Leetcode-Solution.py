@@ -44,6 +44,29 @@ class LeetcodeSolution:
         self.total_nodes = 0
 
     @staticmethod
+    def separateDigits(self, nums: List[int]) -> List[int]:
+        output = []
+        for num in nums:
+            for char in str(num):
+                output.append(int(char))
+        return output
+
+    @staticmethod
+    def sort_people(names: List[str], heights: List[int]) -> List[str]:
+        joined = []
+        for x in range(len(names)):
+            joined.append([heights[x], names[x]])
+        output = []
+        joined = reversed(sorted(joined))
+        for entry in joined:
+            output.append(entry[1])
+        return output
+
+    @staticmethod
+    def smallest_even_multiple(n: int) -> int:
+        return n if n % 2 == 0 else n * 2
+
+    @staticmethod
     def third_max(nums: List[int]) -> int:
         nums = sorted(list(set(nums)))
         first = -float('inf')

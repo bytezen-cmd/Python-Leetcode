@@ -1,5 +1,5 @@
 """To check the working of some functions."""
-stack = []
+"""stack = []
 try:
     print(stack[-1])
 except IndexError:
@@ -12,4 +12,7 @@ while None or None:
      print(list(range(4,0,-1)))
 print([1,2,3] + [2,3,4])
 
-print(list(range(-1,-4,-1)))
+print(list(range(-1,-4,-1)))"""
+
+import time
+print(time.strftime("%Y-%D-%H-%M-%S",time.gmtime(62)))

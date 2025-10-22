@@ -4,6 +4,36 @@ import math
 class CodewarsSolution:
 
     @staticmethod
+    def move_zeros(lst):
+        count = 0
+        new_list = []
+        for elements in lst:
+            if elements == 0:
+                count += 1
+            else:
+                new_list.append(elements)
+        for _ in range(count):
+            new_list.append(0)
+        return new_list
+
+    @staticmethod
+    def generate_hashtag(s):
+        words = s.split()
+        if len(s) == 0 or len("#" + "".join(words)) > 140:
+            return False
+        new = "#"
+        for word in words:
+            for char in range(1, len(word)):
+                if word[char].isupper():
+                    word = word[:char] + word[char].lower() + word[char + 1:]
+            if word[0].islower():
+                word = word[0].upper() + word[1:]
+                new += word
+            else:
+                new += word
+        return new
+
+    @staticmethod
     def expanded_form(num):
         num = str(num)
         digits = len(num)
