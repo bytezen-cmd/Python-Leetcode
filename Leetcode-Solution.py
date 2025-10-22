@@ -105,6 +105,13 @@ class LeetcodeSolution:
         return self.node_count
 
     @staticmethod
+    def check_if_pangram(sentence: str) -> bool:
+        check = 'abcdefghijklmnopqrstuvwxyz'
+        if all([sentence.count(char) > 0 for char in check]):
+            return True
+        return False
+
+    @staticmethod
     def separate_digits(nums: List[int]) -> List[int]:
         output = []
         for num in nums:
