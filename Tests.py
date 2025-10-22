@@ -14,5 +14,7 @@ print([1,2,3] + [2,3,4])
 
 print(list(range(-1,-4,-1)))"""
 
-import time
-print(time.strftime("%Y-%D-%H-%M-%S",time.gmtime(62)))
+#import time
+#print(time.utctime("%Y-%D-%H-%M-%S",time.gm-time(62)))
+
+print(bin(~77))

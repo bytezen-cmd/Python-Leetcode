@@ -44,6 +44,57 @@ class LeetcodeSolution:
         self.total_nodes = 0
         self.node_count = 0
 
+    @staticmethod
+    def min_operations(nums: List[int]) -> int:
+        count = 0
+        index = 1
+        if len(nums) == 1:
+            return 0
+        while index < len(nums):
+            if nums[index] <= nums[index - 1]:
+                count += nums[index - 1] - nums[index] + 1
+                nums[index] += nums[index - 1] - nums[index] + 1
+            index += 1
+        return count
+
+    @staticmethod
+    def array_sign(nums: List[int]) -> int:
+        product = 1
+        for num in nums:
+            product *= num
+        if product == 0:
+            return 0
+        elif product > 0:
+            return 1
+        else:
+            return -1
+
+    @staticmethod
+    def truncate_sentence(s: str, k: int) -> str:
+        array = s.split()
+        return " ".join(array[:k])
+
+    @staticmethod
+    def percentage_letter(s: str, letter: str) -> int:
+        count = 0
+        for char in s:
+            if char == letter:
+                count += 1
+        return (count * 100) // len(s)
+
+    @staticmethod
+    def square_is_white(coordinates: str) -> bool:
+        column = {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6, "g": 7, "h": 8}
+        return (column[coordinates[0]] % 2) != (int(coordinates[1]) % 2)
+
+    @staticmethod
+    def digit_count(num: str) -> bool:
+        num = [int(char) for char in num]
+        for x in range(len(num)):
+            if num.count(x) != num[x]:
+                return False
+        return True
+
     def count_nodes(self, root: Optional[TreeNode]) -> int:
         if root:
             self.node_count += 1
