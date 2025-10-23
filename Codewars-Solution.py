@@ -179,3 +179,18 @@ class CodewarsSolution:
             for _ in range(a.count(num)):
                 a.remove(num)
         return a
+
+    @staticmethod
+    def ips_between(start, end):
+        a = start.split(".")
+        b = end.split(".")
+        count = int(b[3]) - int(a[3]) + (256 * (int(b[2]) - int(a[2]))) + (256 * 256 * (int(b[1]) - int(a[1]))) + (
+                    256 * 256 * 256 * (int(b[0]) - int(a[0])))
+        return count
+
+    @staticmethod
+    def alphanumeric(password: str) -> bool:
+        if len(password) > 0 and " " not in password and "_" not in password and all(
+                [char.isalnum() for char in password]):
+            return True
+        return False
