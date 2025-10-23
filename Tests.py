@@ -1,2 +1,2 @@
-import math
-print(math.lcm(1,2,543))
+# import math
+# print(math.lcm(1,2,543))
