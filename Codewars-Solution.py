@@ -3,6 +3,15 @@ import math
 
 class CodewarsSolution:
 
+    @staticmethod
+    def solution(lst):
+        if len(lst) == 1:
+            return lst[0]
+        temp = lst[0]
+        for n in lst:
+            temp = math.gcd(temp, n)
+        return len(lst) * temp
+
     def __init__(self):
         self.memo = {0:0, 1:1}
 
@@ -71,7 +80,7 @@ class CodewarsSolution:
         return True
 
     @staticmethod
-    def solution(s):
+    def solution_prev(s):
         answer = []
         for x in range(0, len(s), 2):
             if x + 1 != len(s):
