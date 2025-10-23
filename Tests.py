@@ -15,6 +15,10 @@ print([1,2,3] + [2,3,4])
 print(list(range(-1,-4,-1)))"""
 
 #import time
-#print(time.utctime("%Y-%D-%H-%M-%S",time.gm-time(62)))
+# print(time.utctime("%Y-%D-%H-%M-%S",time.gm-time(62)))
 
-print(bin(~77))
+# print(bin(~77))
+
+# from collections import permutations
+x = ord('a')
+print(x)

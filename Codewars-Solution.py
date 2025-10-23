@@ -3,6 +3,9 @@ import math
 
 class CodewarsSolution:
 
+    def __init__(self):
+        self.memo = {0:0, 1:1}
+
     @staticmethod
     def move_zeros(lst):
         count = 0
@@ -194,3 +197,22 @@ class CodewarsSolution:
                 [char.isalnum() for char in password]):
             return True
         return False
+
+    def fibonacci(self, n):
+
+        if n in self.memo:
+            return self.memo[n]
+        else:
+            self.memo[n] = self.fibonacci(n - 1) + self.fibonacci(n - 2)
+            return self.memo[n]
+
+    @staticmethod
+    def rot13(message):
+        message = list(message)
+        for x in range(len(message)):
+            if message[x].isalpha():
+                if message[x].isupper():
+                    message[x] = chr((((ord(message[x]) - ord('A')) + 13) % 26) + ord('A'))
+                else:
+                    message[x] = chr((((ord(message[x]) - ord('a')) + 13) % 26) + ord('a'))
+        return "".join(message)
