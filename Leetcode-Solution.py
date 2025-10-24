@@ -45,6 +45,13 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def get_no_zero_integers(n: int) -> list[int] | None:
+        for x in range(n):
+            if '0' not in str(x) and '0' not in str(n - x):
+                return [x, n - x]
+        return None
+
+    @staticmethod
     def reorder_spaces(text: str) -> str:
         count = 0
         for x in text:
