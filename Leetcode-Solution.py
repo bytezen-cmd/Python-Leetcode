@@ -45,6 +45,27 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def reorder_spaces(text: str) -> str:
+        count = 0
+        for x in text:
+            if x == " ":
+                count += 1
+        if len(text.strip().split()) == 1:
+            return "".join(text.strip().split()) + (" " * count)
+        words = text.strip().split()
+        initial = " " * (count // (len(words) - 1))
+        extra = " " * (count % (len(words) - 1))
+        return initial.join(words) + extra
+
+    @staticmethod
+    def sum_odd_length_subarrays(arr: List[int]) -> int:
+        result = 0
+        for y in range(1, len(arr) + 1, 2):
+            for x in range(len(arr) - y + 1):
+                result += sum(arr[x:x + y])
+        return result
+
+    @staticmethod
     def num_special(mat: List[List[int]]) -> int:
         count = 0
         for i in range(len(mat)):
