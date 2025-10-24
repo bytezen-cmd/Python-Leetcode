@@ -45,6 +45,16 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def num_special(mat: List[List[int]]) -> int:
+        count = 0
+        for i in range(len(mat)):
+            for j in range(len(mat[i])):
+                if mat[i][j] == 1 and all([mat[i][k] == 0 for k in range(len(mat[i])) if k != j]) and all(
+                        [mat[l][j] == 0 for l in range(len(mat)) if l != i]):
+                    count += 1
+        return count
+
+    @staticmethod
     def min_operations(nums: List[int]) -> int:
         count = 0
         index = 1
