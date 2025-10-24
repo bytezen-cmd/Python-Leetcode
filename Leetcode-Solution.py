@@ -45,6 +45,17 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def smaller_numbers_than_current(nums: List[int]) -> List[int]:
+        n = []
+        for x in range(len(nums)):
+            count = 0
+            for y in range(len(nums)):
+                if nums[y] < nums[x]:
+                    count += 1
+            n.append(count)
+        return n
+
+    @staticmethod
     def count_negatives(grid: List[List[int]]) -> int:
         count = 0
         for gri in grid:
