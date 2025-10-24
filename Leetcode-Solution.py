@@ -45,6 +45,31 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def count_negatives(grid: List[List[int]]) -> int:
+        count = 0
+        for gri in grid:
+            for gr in gri:
+                if gr < 0:
+                    count += 1
+        return count
+
+    @staticmethod
+    def number_of_steps(num: int) -> int:
+        step = 0
+        while num:
+            num = num // 2 if num % 2 == 0 else num - 1
+            step += 1
+        return step
+
+    @staticmethod
+    def maximum_69_number(num: int) -> int:
+        num = str(num)
+        if '6' in num:
+            return int(num[:num.index('6')] + '9' + num[num.index('6') + 1:])
+        else:
+            return int(num)
+
+    @staticmethod
     def get_no_zero_integers(n: int) -> list[int] | None:
         for x in range(n):
             if '0' not in str(x) and '0' not in str(n - x):
