@@ -2,4 +2,4 @@
 # import math
 # print(math.lcm(1,2,543))
 # print(bin(123))
-# print(bin(1324))
+# print(bin(1324

@@ -56,6 +56,51 @@ class LeetcodeSolution:
         return n
 
     @staticmethod
+    def unique_morse_representations(words: List[str]) -> int:
+        memo = {
+            "a": ".-",
+            "b": "-...",
+            "c": "-.-.",
+            "d": "-..",
+            "e": ".",
+            "f": "..-.",
+            "g": "--.",
+            "h": "....",
+            "i": "..",
+            "j": ".---",
+            "k": "-.-",
+            "l": ".-..",
+            "m": "--",
+            "n": "-.",
+            "o": "---",
+            "p": ".--.",
+            "q": "--.-",
+            "r": ".-.",
+            "s": "...",
+            "t": "-",
+            "u": "..-",
+            "v": "...-",
+            "w": ".--",
+            "x": "-..-",
+            "y": "-.--",
+            "z": "--..",
+        }
+        table = str.maketrans(memo)
+        for x in range(len(words)):
+            words[x] = words[x].translate(table)
+        words = set(words)
+        return len(words)
+
+    @staticmethod
+    def rotate_string(s: str, goal: str) -> bool:
+        for _ in range(len(s)):
+            if s == goal:
+                return True
+            else:
+                s = s[1:] + s[0]
+        return False
+
+    @staticmethod
     def count_negatives(grid: List[List[int]]) -> int:
         count = 0
         for gri in grid:
