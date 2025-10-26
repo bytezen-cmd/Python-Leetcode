@@ -45,6 +45,21 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def sort_array_by_parity(nums: List[int]) -> List[int]:
+        even = []
+        odd = []
+        for entry in nums:
+            if entry % 2 == 0:
+                even.append(entry)
+            else:
+                odd.append(entry)
+        return even + odd
+
+    @staticmethod
+    def is_monotonic(nums: List[int]) -> bool:
+        return nums == sorted(nums) or nums == sorted(nums, reverse=True)
+
+    @staticmethod
     def smaller_numbers_than_current(nums: List[int]) -> List[int]:
         n = []
         for x in range(len(nums)):
@@ -90,6 +105,20 @@ class LeetcodeSolution:
             words[x] = words[x].translate(table)
         words = set(words)
         return len(words)
+
+    @staticmethod
+    def uncommon_from_sentences(s1: str, s2: str) -> List[str]:
+        s1 = s1.split()
+        s2 = s2.split()
+        output = []
+        for char in s1:
+            if s1.count(char) == 1 and char not in s2:
+                output.append(char)
+
+        for char in s2:
+            if s2.count(char) == 1 and char not in s1:
+                output.append(char)
+        return output
 
     @staticmethod
     def rotate_string(s: str, goal: str) -> bool:
