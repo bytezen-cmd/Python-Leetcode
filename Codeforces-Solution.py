@@ -14,7 +14,7 @@ class CodeforcesSolution:
         for char in line:
             if (char == "4") or (char == "7"):
                 count += 1
-        if Solution.is_lucky(str(count)):
+        if CodeforcesSolution.is_lucky(str(count)):
             print("YES")
         else:
             print("NO")
