@@ -45,6 +45,19 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def weight(order, x):
+        if x not in order:
+            return float('inf')
+        else:
+            return order.index(x)
+
+    @staticmethod
+    def custom_sort_string(order: str, s: str) -> str:
+        s = [char for char in s]
+        s.sort(key=lambda x: LeetcodeSolution.weight(order, x))
+        return "".join(s)
+
+    @staticmethod
     def sort_array_by_parity(nums: List[int]) -> List[int]:
         even = []
         odd = []

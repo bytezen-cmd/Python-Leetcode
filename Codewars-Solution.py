@@ -225,3 +225,10 @@ class CodewarsSolution:
                 else:
                     message[x] = chr((((ord(message[x]) - ord('a')) + 13) % 26) + ord('a'))
         return "".join(message)
+
+    @staticmethod
+    def multi_table(number):
+        output = []
+        for x in range(1, 11):
+            output += [f"{x} * {number} = {number * x}"]
+        return "\n".join(output)
