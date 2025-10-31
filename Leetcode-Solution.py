@@ -1,4 +1,5 @@
 from typing import List, Any, Optional
+import math
 
 # Data Structures
 class ListNode:
@@ -43,6 +44,18 @@ class LeetcodeSolution:
         self.left_leaves_entry = []
         self.total_nodes = 0
         self.node_count = 0
+
+    @staticmethod
+    def insert_greatest_common_divisors(head: Optional[ListNode]) -> Optional[ListNode]:
+        z = head
+        while head and head.next:
+            x = head.val
+            y = head.next.val
+            a = ListNode(val=math.gcd(x, y))
+            a.next = head.next
+            head.next = a
+            head = head.next.next
+        return z
 
     @staticmethod
     def weight(order, x):
