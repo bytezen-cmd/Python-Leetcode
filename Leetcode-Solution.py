@@ -44,6 +44,63 @@ class LeetcodeSolution:
         self.left_leaves_entry = []
         self.total_nodes = 0
         self.node_count = 0
+        self.seq1 = []
+        self.seq2 = []
+
+    def func1(self, root1):
+        if root1.left:
+            self.func1(root1.left)
+        if root1.right:
+            self.func1(root1.right)
+        if not root1.right and not root1.left:
+            self.seq1.append(root1.val)
+
+    def func2(self, root1):
+        if root1.left:
+            self.func2(root1.left)
+        if root1.right:
+            self.func2(root1.right)
+        if not root1.right and not root1.left:
+            self.seq2.append(root1.val)
+
+    def leaf_similar(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> bool:
+        self.func1(root1)
+        self.func2(root2)
+        return self.seq1 == self.seq2
+
+    @staticmethod
+    def swap_pairs(head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return head
+        if head and not head.next:
+            return head
+        nl = []
+        while head:
+            nl.append(head.val)
+            head = head.next
+        for x in range(0, len(nl), 2):
+            try:
+                nl[x], nl[x + 1] = nl[x + 1], nl[x]
+            except IndexError:
+                pass
+        output = ListNode(val=nl[0])
+        point = output
+        for val in nl[1:]:
+            output.next = ListNode(val=val)
+            output = output.next
+        return point
+
+    @staticmethod
+    def convert_temperature(celsius: float) -> List[float]:
+        return [celsius + 273.15, celsius * 1.80 + 32]
+
+    @staticmethod
+    def sum_indices_with_k_set_bits(nums: List[int], k: int) -> int:
+        output = 0
+        for x in range(len(nums)):
+            if (bin(x).count("1")) == k:
+                output += nums[x]
+        return output
 
     @staticmethod
     def add_spaces(s: str, spaces: List[int]) -> str:
