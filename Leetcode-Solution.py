@@ -47,6 +47,24 @@ class LeetcodeSolution:
         self.seq1 = []
         self.seq2 = []
 
+    @staticmethod
+    def find_missing_and_repeated_values(grid: List[List[int]]) -> List[int]:
+        num = []
+        for x in grid:
+            for y in x:
+                num.append(y)
+        output = []
+        for x in num:
+            if num.count(x) > 1:
+                output.append(x)
+                break
+        check = [x for x in range(1, max(num) + 2)]
+        for z in check:
+            if z not in num:
+                output.append(z)
+                break
+        return output
+
     def func1(self, root1):
         if root1.left:
             self.func1(root1.left)
