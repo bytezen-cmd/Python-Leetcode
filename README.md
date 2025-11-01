@@ -198,9 +198,9 @@ print(queue.pop())  # Output: 1
 
 3. Run any solution file:
    ```bash
-   python Leetcode-Solution.py
-   python Codewars-Solution.py
-   python Codeforces-Solution.py
+   python Leetcode_Solution.py
+   python Codewars_Solution.py
+   python Codeforces_Solution.py
    ```
 
 ## Development Environment
