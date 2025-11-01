@@ -46,6 +46,16 @@ class LeetcodeSolution:
         self.node_count = 0
 
     @staticmethod
+    def add_spaces(s: str, spaces: List[int]) -> str:
+        output = []
+        prev = 0
+        for x in spaces:
+            output.append(s[prev:x])
+            prev = x
+        output.append(s[prev:])
+        return " ".join(output)
+
+    @staticmethod
     def insert_greatest_common_divisors(head: Optional[ListNode]) -> Optional[ListNode]:
         z = head
         while head and head.next:
