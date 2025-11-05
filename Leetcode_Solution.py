@@ -48,6 +48,37 @@ class LeetcodeSolution:
         self.seq2 = []
 
     @staticmethod
+    def max_frequency_elements(nums: List[int]) -> int:
+        max_freq = -float('inf')
+        for num in nums:
+            if nums.count(num) > max_freq:
+                max_freq = nums.count(num)
+        count = 0
+        for num in nums:
+            if nums.count(num) >= max_freq:
+                count += 1
+        return count
+
+    @staticmethod
+    def fac(x):
+        output = 1
+        for i in range(1, x + 1):
+            output *= i
+        return output
+
+    def c(self, n, k):
+        return self.fac(n) // (self.fac(k) * self.fac(n - k))
+
+    def generate(self, num_rows: int) -> List[List[int]]:
+        output = []
+        for n in range(0, num_rows + 1):
+            temp = []
+            for k in range(num_rows + 1):
+                temp.append(self.c(n, k))
+            output.append(temp[:n + 1])
+        return output[:len(output) - 1]
+
+    @staticmethod
     def find_missing_and_repeated_values(grid: List[List[int]]) -> List[int]:
         num = []
         for x in grid:

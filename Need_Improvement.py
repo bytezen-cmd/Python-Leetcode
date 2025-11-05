@@ -2,6 +2,14 @@ from typing import List
 from xml.etree.ElementTree import VERSION
 
 
+def hamming(n):
+    o = []
+    for i in range(n // 2 + 1):
+        for j in range(n // 3 + 1):
+            for k in range(n // 5 + 1):
+                o.append(2 ** i * 3 ** j * 5 ** k)
+    return sorted(o)[n-1]
+
 def buddy_strings(s: str, goal: str) -> bool:
     for i in range(len(s)):
         for j in range(i + 1, len(s)):
