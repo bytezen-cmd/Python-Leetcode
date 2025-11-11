@@ -1,121 +1,93 @@
 # Python Coding Solutions
 
-A comprehensive collection of Python solutions for popular competitive programming platforms including LeetCode, Codewars, and Codeforces.
+A comprehensive collection of Python solutions for competitive programming platforms including LeetCode, Codewars, Codeforces, and HackerRank.
 
 ## Project Structure
 
 ```
 .
-├── Leetcode-Solution.py     # LeetCode problem solutions
-├── Codewars-Solution.py     # Codewars challenge solutions
-├── Codeforces-Solution.py   # Codeforces problem solutions
-├── Tests.py                 # Test cases and experiments
-└── LICENSE.txt              # MIT License
+├── Leetcode_Solution.py      # 70+ LeetCode problem solutions
+├── Codewars_Solution.py      # Codewars challenge solutions
+├── Codeforces_Solution.py    # Codeforces problem solutions
+├── Hackerrank_Solution.py    # HackerRank problem solutions
+├── Need_Improvement.py       # Problems requiring refinement
+├── Tests.py                  # Test cases and experiments
+├── LICENSE.txt               # MIT License
+└── README.md                 # This file
 ```
 
 ## Features
 
-### Data Structures
+### Custom Data Structures
 
-**Custom Implementations:**
-- `ListNode`: Singly linked list node
-- `TreeNode`: Binary tree node
-- `MyQueue`: Queue implementation using lists
-- `Stack`: Custom stack implementation (in `dir_reduction`)
+**ListNode**: Singly linked list node implementation for linked list problems
 
-### Platform Solutions
+**TreeNode**: Binary tree node for tree traversal and manipulation problems
 
-#### LeetCode Solutions (70+ Problems)
+**MyQueue**: Custom queue implementation using lists with push, pop, peek, and empty operations
 
-**Array & String Problems:**
-- Two Sum (#1)
-- Roman to Integer (#13)
-- Longest Common Prefix (#14)
-- Valid Parentheses (#20)
-- Remove Duplicates from Sorted Array (#26)
-- Remove Element (#27)
-- Search Insert Position (#35)
-- Length of Last Word (#58)
-- Plus One (#66)
-- Add Binary (#67)
-- Climbing Stairs (#70)
-- Merge Sorted Array (#88)
-- Majority Element (#169)
-- Contains Duplicate (#217)
-- Summary Ranges (#228)
-- Third Maximum Number (#414)
-- Find the Difference (#389)
-- Number of Segments in a String (#434)
-- Hamming Weight (#191)
-- Reverse Bits (#190)
-- Count Segments (#434)
-- Reverse Vowels (#345)
-- Intersection of Two Arrays (#349, #350)
+**Stack**: Custom stack implementation used in direction reduction and validation problems
 
-**Linked List Problems:**
-- Merge Two Sorted Lists (#21)
-- Remove Duplicates from Sorted List (#83)
-- Palindrome Linked List (#234)
+## Platform Solutions Overview
 
-**Tree Problems:**
-- Same Tree (#100)
-- Binary Tree Inorder Traversal (#94)
-- Sum of Left Leaves (#404)
-- Count Complete Tree Nodes (#222)
+### LeetCode Solutions (70+ Problems)
 
-**Math & Bit Manipulation:**
-- Palindrome Number (#9)
-- Square Root (#69)
-- Power of Two (#231)
-- Power of Four (#342)
-- Counting Bits (#338)
-- Happy Number (#202)
-- Find GCD of Array (#1979)
+**Array & String (23 problems)**
+- Two Sum, Remove Duplicates, Remove Element
+- Search Insert Position, Plus One, Add Binary
+- Length of Last Word, Majority Element, Contains Duplicate
+- Find the Difference, Intersection of Two Arrays, Reverse Vowels
+- And more...
 
-**Other Problems:**
-- FizzBuzz (#412)
-- Ransom Note (#383)
-- Goal Parser Interpretation (#1678)
-- Find Middle Index (#1991)
-- Find Peaks in Array (#2951)
-- Number of Pairs of Strings (#2023)
+**Linked List (3 problems)**
+- Merge Two Sorted Lists
+- Palindrome Linked List
+- Remove Duplicates from Sorted List
 
-#### Codewars Solutions
+**Tree Problems (4 problems)**
+- Same Tree, Binary Tree Inorder Traversal
+- Sum of Left Leaves, Count Complete Tree Nodes
 
-**Array Manipulation:**
-- `comp()`: Check if arrays are compositions (squares)
-- `array_diff()`: Remove all occurrences of elements
-- `find_uniq()`: Find unique element in array
-- `find_even_index()`: Find equilibrium index
+**Math & Bit Manipulation (11 problems)**
+- Palindrome Number, Square Root, Power of Two
+- Power of Four, Counting Bits, Happy Number
+- Hamming Weight, Reverse Bits, and more
 
-**String Problems:**
-- `solution()`: Split string into pairs
-- `likes()`: Format social media likes display
-- `is_isogram()`: Check if string has repeating characters
-- `create_phone_number()`: Format phone number
+**Other Problems (29+ problems)**
+- Valid Parentheses, FizzBuzz, Climbing Stairs
+- Roman to Integer, Longest Common Prefix
+- And numerous other challenges
 
-**Mathematical:**
-- `digital_root()`: Calculate digital root
-- `circle_diameter()`: Calculate circle diameter from polygon
+### Codewars Solutions
 
-**Algorithm Challenges:**
-- `dir_reduction()`: Reduce opposite directions using stack
+**Array Manipulation**: `comp()`, `array_diff()`, `find_uniq()`, `find_even_index()`
 
-#### Codeforces Solutions
+**String Problems**: `likes()`, `is_isogram()`, `create_phone_number()`, `generate_hashtag()`
 
-- **Nearly Lucky Number**: Check if count of lucky digits is lucky
-- **Translation**: Check if strings are reverses of each other
-- **Is Lucky**: Helper function to check lucky numbers
+**Mathematical**: `digital_root()`, `circle_diameter()`, `expanded_form()`
+
+**Advanced Algorithms**: `dir_reduction()`, `rot13()`, `order()`, and more
+
+### Codeforces Solutions
+
+- **Nearly Lucky Number**: Determines if digit count is lucky
+- **Translation**: Checks if strings are reverses of each other
+- **Helper Functions**: `is_lucky()` for validation
+
+### HackerRank Solutions
+
+- **Time Conversion**: Converts 12-hour to 24-hour time format
 
 ## Usage Examples
 
-### LeetCode Solutions
+### LeetCode Usage
 
 ```python
-from Leetcode_Solution import Solution
+from Leetcode_Solution import LeetcodeSolution
+
+sol = LeetcodeSolution()
 
 # Two Sum Problem
-sol = Solution()
 result = sol.two_sum([2, 7, 11, 15], 9)
 print(result)  # Output: [0, 1]
 
@@ -126,33 +98,49 @@ print(is_valid)  # Output: True
 # Climbing Stairs (with memoization)
 steps = sol.climb_stairs(10)
 print(steps)  # Output: 89
+
+# FizzBuzz
+fizzbuzz = sol.fizz_buzz(15)
+print(fizzbuzz)  # Output: ['1', '2', 'Fizz', '4', 'Buzz', ...]
 ```
 
-### Codewars Solutions
+### Codewars Usage
 
 ```python
-from Codewars_Solution import Solution
+from Codewars_Solution import CodewarsSolution
 
 # Likes formatting
-print(Solution.likes([]))  
+print(CodewarsSolution.likes([]))  
 # Output: "no one likes this"
 
-print(Solution.likes(["Peter"]))  
-# Output: "Peter likes this"
-
-print(Solution.likes(["Jacob", "Alex"]))  
-# Output: "Jacob and Alex like this"
-
-print(Solution.likes(["Max", "John", "Mark", "Ann"]))  
-# Output: "Max, John and 2 others like this"
+print(CodewarsSolution.likes(["Peter", "Julia"]))  
+# Output: "Peter and Julia like this"
 
 # Digital Root
-print(Solution.digital_root(942))  
+print(CodewarsSolution.digital_root(942))  
 # Output: 6 (9+4+2=15, 1+5=6)
 
 # Direction Reduction
-print(Solution.dir_reduction(["NORTH", "SOUTH", "EAST", "WEST"]))
-# Output: ["EAST", "WEST"]
+print(CodewarsSolution.dir_reduction(["NORTH", "SOUTH", "EAST", "WEST"]))
+# Output: []
+
+# ROT13 Cipher
+print(CodewarsSolution.rot13("Test"))
+# Output: "Grfg"
+```
+
+### Codeforces Usage
+
+```python
+from Codeforces_Solution import CodeforcesSolution
+
+# Nearly Lucky Number
+CodeforcesSolution.nearly_lucky()  # Input: 4474
+# Output: YES
+
+# Translation
+CodeforcesSolution.translation()  # Input: abc, cba
+# Output: YES
 ```
 
 ### Data Structure Usage
@@ -177,13 +165,50 @@ queue.push(2)
 print(queue.pop())  # Output: 1
 ```
 
+## Problem Categories
+
+### Easy Level
+- Palindrome Number
+- Two Sum
+- FizzBuzz
+- Valid Parentheses
+- Climbing Stairs
+
+### Medium Level
+- Longest Common Prefix
+- Roman to Integer
+- Binary Tree Inorder Traversal
+- Digital Root
+- Direction Reduction
+
+### Hard Level
+- Tree comparison and traversal
+- Complex string manipulation
+- Stack-based algorithms
+
+## Key Algorithms & Techniques
+
+**Two Pointers**: Array manipulation, string reversal, palindrome checking
+
+**Stack**: Parentheses validation, direction reduction, symbol matching
+
+**Hash Map/Set**: Two sum problems, duplicate detection, intersection finding
+
+**Binary Search**: Search insert position, finding targets in sorted arrays
+
+**Dynamic Programming**: Climbing stairs with memoization, Fibonacci optimization
+
+**Recursion**: Tree traversal, mathematical calculations, permutations
+
+**Greedy Algorithms**: Direction reduction, array processing
+
 ## Requirements
 
 - Python 3.13+
 - `typing` module (standard library)
 - `math` module (standard library)
 
-## Setup
+## Installation & Setup
 
 1. Clone the repository:
    ```bash
@@ -191,74 +216,76 @@ print(queue.pop())  # Output: 1
    cd python
    ```
 
-2. Ensure Python 3.13 or higher is installed:
+2. Verify Python version:
    ```bash
-   python --version
+   python --version  # Should be 3.13 or higher
    ```
 
-3. Run any solution file:
+3. Run solution files:
    ```bash
    python Leetcode_Solution.py
    python Codewars_Solution.py
    python Codeforces_Solution.py
+   python Hackerrank_Solution.py
    ```
 
 ## Development Environment
 
-**IDE Configuration:**
-- PyCharm IDE (configuration in `.idea/`)
-- Python 3.13 interpreter
-- Black formatter configured
-- Git version control
+**IDE**: PyCharm with Black formatter
 
-**Project Settings:**
-- Virtual environment: `.venv/`
-- Type hints enabled
-- Static type checking recommended
+**Python Interpreter**: Python 3.13
 
-## Key Algorithms & Techniques
+**Virtual Environment**: `.venv/` (configured)
 
-### Algorithm Patterns
-- **Two Pointers**: Array manipulation, string reversal
-- **Stack**: Parentheses validation, direction reduction
-- **Hash Map/Set**: Two sum, duplicate detection, intersection
-- **Binary Search**: Search insert position
-- **Dynamic Programming**: Climbing stairs with memoization
-- **Recursion**: Tree traversal, mathematical calculations
-- **Greedy**: Direction reduction, array processing
+**Version Control**: Git
 
-### Optimization Techniques
-- Memoization/caching (climbing stairs)
-- In-place array modification
-- Early termination conditions
-- Set operations for O(1) lookups
+**Code Quality**: Type hints enabled, static type checking recommended
 
-## Code Style
+## Code Style Guidelines
 
-- Type hints for function parameters and return values
-- Static methods where appropriate
-- Descriptive variable names
-- Minimal comments (self-documenting code)
-- Consistent formatting
+- Type hints for all function parameters and return values
+- Static methods where appropriate (no instance state needed)
+- Descriptive variable names for clarity
+- Minimal comments with self-documenting code
+- Consistent formatting and organization
 
 ## Testing
 
-Basic tests are available in `Tests.py` for experimentation and verification:
+Experimental tests and function verification available in `Tests.py`:
 
 ```python
 python Tests.py
 ```
 
+## Performance Notes
+
+**Optimizations Implemented:**
+- Memoization for recursive problems (Fibonacci, climbing stairs)
+- In-place array modifications where possible
+- Early termination conditions
+- Set operations for O(1) lookups
+- Hash maps for efficient searching
+
+**Time Complexities:** Solutions prioritize correctness and clarity over extreme optimization, but include standard algorithmic improvements.
+
+## Problems Requiring Improvement
+
+Some solutions in `Need_Improvement.py` include:
+
+- **Hamming Numbers**: Inefficient triple-nested loop approach
+- **Buddy Strings**: Brute force checking method
+- **Add Spaces**: Initial suboptimal implementation with corrected version provided
+
 ## Contributing
 
-Contributions are welcome! When adding solutions:
+When adding new solutions:
 
 1. Follow existing code structure and naming conventions
-2. Use type hints for all function signatures
-3. Keep solutions in their respective platform files
-4. Add static methods where state isn't needed
-5. Include docstrings for complex algorithms
-6. Test your solution before committing
+2. Include type hints for all function signatures
+3. Keep solutions in appropriate platform files
+4. Use static methods when instance state isn't needed
+5. Test thoroughly before committing
+6. Add docstrings for complex algorithms
 
 ## License
 
@@ -268,15 +295,12 @@ This project is licensed under the MIT License - see the [LICENSE.txt](LICENSE.t
 
 ## Acknowledgments
 
-- Solutions are inspired by problems from:
-  - [LeetCode](https://leetcode.com/)
-  - [Codewars](https://www.codewars.com/)
-  - [Codeforces](https://codeforces.com/)
+Solutions are inspired by and derived from problems on:
+- [LeetCode](https://leetcode.com/)
+- [Codewars](https://www.codewars.com/)
+- [Codeforces](https://codeforces.com/)
+- [HackerRank](https://www.hackerrank.com/)
 
-## Contact
+## Disclaimer
 
-Feel free to reach out for questions, suggestions, or collaboration opportunities!
-
----
-
-**Note**: This repository is intended for educational purposes and personal skill development. Solutions may not always represent the most optimal approach but prioritize clarity and correctness.
+This repository is intended for educational purposes and personal skill development. Solutions prioritize clarity and correctness over absolute optimization. Different approaches may be equally valid depending on specific requirements and constraints.
